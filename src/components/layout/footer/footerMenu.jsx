@@ -6,16 +6,17 @@ function FooterMenu() {
   return (
     <div className="flex flex-col text-center sm:text-left sm:flex-row text-white w-4/6 mx-auto flex-wrap gap-10 sm:gap-4 my-16 ">
       <ul className="footerli text-yellow ">
-        <li>About</li>
+        <Link to={`/about-us`}>About</Link>
         <Link to={`/contact`}>Contact Us</Link>
-        <li>Visit Our Site</li>
-        <li>Showcase</li>
+        <Link to={`/collections`}>Visit Our Site</Link>
+        <Link to={`/`}>Showcase</Link>
+        {/* <li>Showcase</li> */}
       </ul>
       <ul className="footerli text-pink">
-        <li>FAQs</li>
-        <li>Privacy</li>
-        <li>Terms & Conditions</li>
-        <li>Returns Policy</li>
+        <Link to={`/faq`}>FAQs</Link>
+        <Link to={`/privacy-policy`}>Privacy</Link>
+        <Link to={`/terms-and-condition`}>Terms & Conditions</Link>
+        <Link to={`/retrun-policy`}>Returns Policy</Link>
       </ul>
       <div className="flex-1">
         <h2 className="text-yellow font-medium mb-4">Pick A Neon</h2>
