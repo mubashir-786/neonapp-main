@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSplice";
 
-export default function ProductSmallCard({ image_path, name, price }) {
+export default function ProductSmallCard({ image_path, name, price,id }) {
   const dispatch = useDispatch();
   const handleAddingToCart = () => {
-    dispatch(addToCart({ img: image_path, name, price }));
+    dispatch(addToCart({ img: image_path, name, price,id }));
   };
 
   return (
