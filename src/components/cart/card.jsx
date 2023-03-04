@@ -11,7 +11,7 @@ export default function Card({ val, cartItems }) {
   console.log("adgsd ", val);
 
   const onSubmit = async () => {
-    if (cardnumber == 14) {
+    if (cardnumber.length === 13 && cardCvc.length === 2, cardYear ,carddate ) {
       try {
         for (let i = 0; i < cartItems.length; i++) {
           const isNotCustom = cartItems[i].name ? true : false;
@@ -117,8 +117,8 @@ export default function Card({ val, cartItems }) {
         console.error(err);
       }
     }
+    else alert(`Please Fill All The Feilds`);
   };
-  console.log("me here ", cartItems);
   return (
     <div>
       <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 pb-10 pt-16">
@@ -154,6 +154,7 @@ export default function Card({ val, cartItems }) {
                 class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
                 placeholder="0000 0000 0000 0000"
                 type="number"
+                maxLength={14}
                 onChange={(e) => {
                   cardnumber.length > 13 ? setCardNumber(e.target.value) : null;
                 }}
