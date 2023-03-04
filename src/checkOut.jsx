@@ -36,8 +36,7 @@ const[val,setVal]=useState()
     phoneNumber: "",
     message: "",
     toggle: false,
-  };
-
+  }; 
   const vaildation = Yup.object({
     email: Yup.string().email("Invalid email address").required("Required"),
     firstName: Yup.string()

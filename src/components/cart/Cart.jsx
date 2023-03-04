@@ -12,7 +12,10 @@ const Cart = ({ items, total, toggle }) => {
               <img src={'http://35.74.25.58/'+item.img} alt={item.name} className="rounded-xl" />
             </div>
             <div className="flex flex-col justify-between">
-              <h4 className="font-bold mb-6">{item.customText[0] ? item.title :item.name}</h4>
+              <h4 className="font-bold mb-6">
+                {
+                // item.customText[0] ? item.title :
+                item.name}</h4>
               <p className="text-lg">{item.price}</p>
             </div>
           </div>
