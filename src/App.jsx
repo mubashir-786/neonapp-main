@@ -4,10 +4,12 @@ import ImgGallery from "./components/HomeSections/gallery";
 import Reviews from "./components/HomeSections/reviewsSection";
 import FollowSection from "./components/HomeSections/follow";
 import Brands from "./components/HomeSections/brands";
+import ScrollToTopOnMount from "./components/scrolltoTop";
 
 function App() {
   return (
     <div className="App">
+      <ScrollToTopOnMount />
       <HeroSection />
       <FeaturesSection />
       <ImgGallery />
