@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
+import React, { useEffect,useState } from 'react'
+
 import CartProduct from "./components/checkoutComp/cartProduct";
 import Reviews from "./components/HomeSections/reviewsSection";
 import { Icon } from "@iconify/react";
 import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
-import { useState } from "react";
 import * as Yup from "yup";
 import { Country, State } from "country-state-city";
 import ScrollToTopOnMount from "./components/scrolltoTop";
@@ -11,10 +12,29 @@ import Card from "./components/cart/card";
 
 
 export default function CheckOutWithId() {
+
+
+
   const [shippingData, setShippingDate] = useState({});
   const cartItems = useSelector((state) => state.cartReducer.itemsInCart);
   const cartLength = cartItems.length;
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+  // const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+
+  const [totalPrice , settotalPrice  ] = useState("")
+
+  function addPrice(params) {
+    
+  for (let i = 0; i < cartItems.length; i++) {
+    const price = cartItems[i].price;
+    settotalPrice(+totalPrice + +price)
+  }
+  }
+  
+  useEffect(() => {
+    addPrice()
+  }, [cartItems])
+  
   const shipping = 0;
   const [error, setError] = useState(null);
 const [card,setCard]=useState(false)
@@ -36,8 +56,7 @@ const[val,setVal]=useState()
     phoneNumber: "",
     message: "",
     toggle: false,
-  };
-
+  }; 
   const vaildation = Yup.object({
     email: Yup.string().email("Invalid email address").required("Required"),
     firstName: Yup.string()

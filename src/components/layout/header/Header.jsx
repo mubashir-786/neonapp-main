@@ -92,7 +92,7 @@ function Header() {
       {openMenu && <MegaMenu passRef={menuRef} />}
       <CartDrawer
         items={cartItems}
-        total={cartItems.reduce((acc, item) => acc + item.price, 0)}
+        total={cartItems}
         isOpen={cartOpen}
         onClose={toggleCart}
         cartRef={cartRef}

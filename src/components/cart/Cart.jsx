@@ -1,7 +1,24 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import { Link } from "react-router-dom";
 
 const Cart = ({ items, total, toggle }) => {
+
+
+  const [totalPrice , settotalPrice  ] = useState("")
+
+function addPrice(params) {
+  
+for (let i = 0; i < total.length; i++) {
+  const price = total[i].price;
+  settotalPrice(+totalPrice + +price)
+}
+}
+
+useEffect(() => {
+  addPrice()
+}, [total])
+
+
   return (
     <div className="px-8 py-10 h-[90vh] gap-8 flex flex-col justify-between">
       <h2 className="text-xl font-bold">Your Cart</h2>
@@ -9,10 +26,13 @@ const Cart = ({ items, total, toggle }) => {
         {items.map((item, i) => (
           <div className="flex gap-6 items-center" key={i + 109}>
             <div className="h-28 w-28">
-              <img src={'http://35.74.25.58/'+item.img} alt={item.name} className="rounded-xl" />
+              <img src={ item.name? 'http://35.74.25.58/'+item.img : item.img} alt={item.name} className="rounded-xl" />
             </div>
             <div className="flex flex-col justify-between">
-              <h4 className="font-bold mb-6">{item.customText[0] ? item.title :item.name}</h4>
+              <h4 className="font-bold mb-6">
+                {
+                // item.customText[0] ? item.title :
+                item.name ?? item.title}</h4>
               <p className="text-lg">{item.price}</p>
             </div>
           </div>
@@ -20,7 +40,7 @@ const Cart = ({ items, total, toggle }) => {
       </div>
       <div className="flex flex-col gap-2">
         <p className="flex justify-between text-lg">
-          Total: <span className="font-bold text-pink text-2xl">$ {total}</span>
+          Total: <span className="font-bold text-pink text-2xl">$ {totalPrice}</span>
         </p>
 
         <Link

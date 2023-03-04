@@ -133,7 +133,7 @@ export default function CustormDesign() {
                   ? "cursor-not-allowed bg-pink/40"
                   : "bg-pink"
               }`}
-              onClick={convertHtmlTOPng}
+              onClick={ lenghtOfWords === 0 ? ()=>{} : convertHtmlTOPng}
             >
               Add to Cart
             </button>
